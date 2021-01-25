@@ -1,0 +1,2 @@
+import beyblade *
+play beyblade
