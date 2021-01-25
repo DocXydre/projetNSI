@@ -1,2 +1,2 @@
-import beyblade *
+import beyblade 
 play beyblade
