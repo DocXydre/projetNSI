@@ -1,3 +1,3 @@
 import beyblade 
 play beyblade 
-la beteu
+le zizi
