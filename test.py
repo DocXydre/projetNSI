@@ -5,8 +5,8 @@ pygame.init()
 
 continuer = True
 
-screen = pygame.display.set_mode((1920, 1080))
-fond = pygame.image.load("background.jpg").convert()
+screen = pygame.display.set_mode((1280, 780))
+fond = pygame.image.load("background.png").convert()
 screen.blit(fond, (0,0))
 
 play = pygame.image.load("play.jpg")
