@@ -1,5 +1,7 @@
 import pygame
 from pygame.locals import *
+from tkinter import*
+import tkinter as tk 
 
 pygame.init()
 
@@ -9,7 +11,7 @@ screen = pygame.display.set_mode((1280, 700))
 fond = pygame.image.load("background.png").convert()
 screen.blit(fond, (0,0))
 
-new = pygame.image.load("option.png")
+new = pygame.image.load("new.png")
 new = pygame.transform.scale(new, (250, 100))
 new_rect = new.get_rect()
 new_rect.x, new_rect.y = 200, 100
@@ -18,6 +20,11 @@ play = pygame.image.load("play.jpg")
 play = pygame.transform.scale(play, (250, 100))
 play_rect = play.get_rect()
 play_rect.x, play_rect.y = 200, 300
+
+name = pygame.image.load("name.png")
+name = pygame.transform.scale(name, (250, 100))
+name_rect = name.get_rect()
+name_rect.x, name_rect.y = 200, 300
 
 Quit = pygame.image.load("quit.jpg")
 Quit = pygame.transform.scale(Quit, (250, 100))
@@ -48,6 +55,7 @@ while continuer:
 while Menu:
     screen.blit(fond, (0,0))
     screen.blit(Quit, Quit_rect)
+    screen.blit(name, name_rect)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             Menu = False
@@ -56,6 +64,13 @@ while Menu:
         if Quit_rect.collidepoint(x,y) and event.type == pygame.MOUSEBUTTONUP:
             Menu=0
             continuer = 0
-    
+        if name_rect.collidepoint(x,y) and event.type == pygame.MOUSEBUTTONUP:
+            Fenetre=Tk()
+            Fenetre.title("PSEUDO")
+            Fenetre.geometry('600x200')
+            entry= tk.Entry(Fenetre, textvariable="vald", width=30,font='Impact 8')
+            entry.place()
+            Fenetre.mainloop()
     pygame.display.update()
-pygame.quit()
+
+pygame.quit()  
