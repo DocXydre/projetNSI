@@ -67,9 +67,9 @@ while Menu:
         if name_rect.collidepoint(x,y) and event.type == pygame.MOUSEBUTTONUP:
             Fenetre=Tk()
             Fenetre.title("PSEUDO")
-            Fenetre.geometry('600x200')
-            entry= tk.Entry(Fenetre, textvariable="vald", width=30,font='Impact 8')
-            entry.place()
+            Fenetre.geometry('200x100')
+            entry= tk.Entry(Fenetre, textvariable="PSEUDO", width=25,font='Impact 10')
+            entry.place(x=10,y=30)
             Fenetre.mainloop()
     pygame.display.update()
 
