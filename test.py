@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-from tkinter import*
+from tkinter import *
 import tkinter as tk 
 
 pygame.init()
@@ -31,6 +31,26 @@ Quit = pygame.transform.scale(Quit, (250, 100))
 Quit_rect = Quit.get_rect()
 Quit_rect.x, Quit_rect.y = 200, 450
 
+perso1 = pygame.image.load("perso1.png")
+perso1 = pygame.transform.scale(perso1, (250, 100))
+perso1_rect = perso1.get_rect()
+perso1_rect.x, perso1_rect.y = 300, 150
+
+perso4 = pygame.image.load("perso4.png")
+perso4 = pygame.transform.scale(perso4, (250, 100))
+perso4_rect = perso4.get_rect()
+perso4_rect.x, perso4_rect.y = 400, 450
+
+perso2 = pygame.image.load("perso2.png")
+perso2 = pygame.transform.scale(perso2, (250, 100))
+perso2_rect = perso2.get_rect()
+perso2_rect.x, perso2_rect.y = 200, 450
+
+perso3 = pygame.image.load("perso3.png")
+perso3 = pygame.transform.scale(perso3, (250, 100))
+perso3_rect = perso3.get_rect()
+perso3_rect.x, perso3_rect.y = 100, 450
+
 Menu=False
 
 while continuer:
@@ -56,6 +76,7 @@ while Menu:
     screen.blit(fond, (0,0))
     screen.blit(Quit, Quit_rect)
     screen.blit(name, name_rect)
+    screen.blit(perso1, perso1_rect)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             Menu = False
@@ -70,7 +91,25 @@ while Menu:
             Fenetre.geometry('200x100')
             entry= tk.Entry(Fenetre, textvariable="PSEUDO", width=25,font='Impact 10')
             entry.place(x=10,y=30)
+            bouton=Button(Fenetre, text="Valider", command=Fenetre.quit)
+            bouton.place(x=30,y=80)
             Fenetre.mainloop()
+        if perso1_rect.collidepoint(x,y) and event.type == pygame.MOUSEBUTTONUP:
+            Menu=0
+            continuer = 0
+            #le jeu joue 
+        if perso2_rect.collidepoint(x,y) and event.type == pygame.MOUSEBUTTONUP:
+            Menu=0
+            continuer = 0
+            #le jeu joue 
+        if perso3_rect.collidepoint(x,y) and event.type == pygame.MOUSEBUTTONUP:
+            Menu=0
+            continuer = 0
+            #le jeu joue 
+        if perso4_rect.collidepoint(x,y) and event.type == pygame.MOUSEBUTTONUP:
+            Menu=0
+            continuer = 0
+            #le jeu joue 
     pygame.display.update()
 
 pygame.quit()  
