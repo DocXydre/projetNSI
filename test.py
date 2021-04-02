@@ -6,6 +6,7 @@ import tkinter as tk
 pygame.init()
 
 continuer = True
+choix=0
 
 screen = pygame.display.set_mode((1280, 700))
 fond = pygame.image.load("background.png").convert()
@@ -39,15 +40,15 @@ perso1_rect.x, perso1_rect.y = 300, 150
 perso4 = pygame.image.load("perso4.png")
 perso4 = pygame.transform.scale(perso4, (250, 100))
 perso4_rect = perso4.get_rect()
-perso4_rect.x, perso4_rect.y = 400, 450
+perso4_rect.x, perso4_rect.y = 400, 250
 
 perso2 = pygame.image.load("perso2.png")
-perso2 = pygame.transform.scale(perso2, (250, 100))
+perso2 = pygame.transform.scale(perso2, (250, 400))
 perso2_rect = perso2.get_rect()
 perso2_rect.x, perso2_rect.y = 200, 450
 
 perso3 = pygame.image.load("perso3.png")
-perso3 = pygame.transform.scale(perso3, (250, 100))
+perso3 = pygame.transform.scale(perso3, (250, 500))
 perso3_rect = perso3.get_rect()
 perso3_rect.x, perso3_rect.y = 100, 450
 
@@ -77,6 +78,9 @@ while Menu:
     screen.blit(Quit, Quit_rect)
     screen.blit(name, name_rect)
     screen.blit(perso1, perso1_rect)
+    screen.blit(perso2, perso1_rect)
+    screen.blit(perso3, perso1_rect)
+    screen.blit(perso4, perso1_rect)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             Menu = False
@@ -97,19 +101,19 @@ while Menu:
         if perso1_rect.collidepoint(x,y) and event.type == pygame.MOUSEBUTTONUP:
             Menu=0
             continuer = 0
-            #le jeu joue 
+            choix=1 
         if perso2_rect.collidepoint(x,y) and event.type == pygame.MOUSEBUTTONUP:
             Menu=0
             continuer = 0
-            #le jeu joue 
+            choix=2
         if perso3_rect.collidepoint(x,y) and event.type == pygame.MOUSEBUTTONUP:
             Menu=0
             continuer = 0
-            #le jeu joue 
+            choix=3
         if perso4_rect.collidepoint(x,y) and event.type == pygame.MOUSEBUTTONUP:
             Menu=0
             continuer = 0
-            #le jeu joue 
+            choix=4
     pygame.display.update()
 
 pygame.quit()  
